@@ -1,46 +1,39 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
 import {
-  ContactShadows,
-  Environment,
-  OrbitControls,
-  Sky,
+    ContactShadows,
+    Lightformer,
+    Environment,
+    OrbitControls,
+    Sky,
 } from "@react-three/drei";
+import { motion } from "framer-motion-3d";
 import { useControls } from "leva";
 import { Avatar } from "./Avatar";
+import { Room } from "./Room";
 
-const RoomScene = () => {
-  const { animation } = useControls({
-    animation: { value: "Typing", options: ["Typing", "Standing", "Falling"] },
-  });
-  return (
-    <>
-      <OrbitControls />
-      <Sky />
-      <Environment preset="sunset" />
-      <group position-y={-1}>
-        <ContactShadows
-          opacity={0.42}
-          scale={10}
-          blur={1}
-          far={10}
-          resolution={256}
-          color="#000000"
-        />
-        <Avatar animation={animation} />
-        {animation === "Typing" && (
-          <mesh scale={[0.8, 0.5, 0.8]} position-y={0.25}>
-            <boxGeometry />
-            <meshStandardMaterial color="white" />
-          </mesh>
-        )}
-        <mesh scale={5} rotation-x={-Math.PI * 0.5} position-y={-0.001}>
-          <planeGeometry />
-          <meshStandardMaterial color="white" />
-        </mesh>
-      </group>
-    </>
-  );
+const RoomScene = ({ section }) => {
+    const { animation } = useControls({
+        animation: {
+            value: "Typing",
+            options: ["Typing", "Standing", "Falling"],
+        },
+    });
+    return (
+        <>
+            <Environment preset="apartment" />
+            <motion.group
+                position={[4, 0, 4]}
+                rotation-y={-Math.PI / 4}
+                scale={[0.9, 0.9, 0.9]}
+                animate={{
+                    y: section === 0 ? -1 : -2,
+                }}
+            >
+                <Room />
+            </motion.group>
+        </>
+    );
 };
 
 export default RoomScene;
