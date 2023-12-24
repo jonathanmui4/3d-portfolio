@@ -8,13 +8,18 @@ import { motion } from "framer-motion-3d";
 import { useGLTF } from "@react-three/drei";
 
 export function Room(props) {
+    const { section } = props;
     const { nodes, materials } = useGLTF("models/Room.glb");
     return (
         <group {...props} dispose={null}>
-            <group
+            <motion.group
                 position={[-1.852, 0.09, -0.021]}
                 rotation={[-Math.PI / 2, 0, -1.576]}
-                scale={2.009}
+                // scale={2.009}
+                scale={[0, 0, 0]}
+                animate={{
+                    scale: section === 0 ? 2.009 : 1.5,
+                }}
             >
                 <group rotation={[Math.PI / 2, 0, 0]}>
                     <group scale={0.01}>
@@ -170,7 +175,7 @@ export function Room(props) {
                         />
                     </group>
                 </group>
-            </group>
+            </motion.group>
             <mesh
                 castShadow
                 receiveShadow
@@ -268,17 +273,21 @@ export function Room(props) {
                 position={[2.41, 1.319, 1.868]}
                 scale={[1.139, 1.051, 1.581]}
             />
-            <mesh
+            <motion.mesh
                 castShadow
                 receiveShadow
                 geometry={nodes.Cube009.geometry}
                 material={nodes.Cube009.material}
                 position={[2.807, 0.843, 3.218]}
             />
-            <group
+            <motion.group
                 position={[0.234, 2.689, -4]}
                 rotation={[-Math.PI / 2, 0, 0]}
-                scale={[1.707, 1, 1]}
+                // scale={[1.707, 1, 1]}
+                scale={[0, 0, 0]}
+                animate={{
+                    scale: section === 0 ? [1.707, 1, 1] : [0.8, 0.5, 0.5],
+                }}
             >
                 <mesh
                     castShadow
@@ -292,7 +301,7 @@ export function Room(props) {
                     geometry={nodes.Plane002_2.geometry}
                     material={materials.f1Screen}
                 />
-            </group>
+            </motion.group>
             <group
                 position={[-3.463, 1.944, -0.059]}
                 rotation={[-Math.PI / 2, 0, Math.PI / 2]}

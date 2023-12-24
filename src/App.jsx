@@ -42,7 +42,10 @@ function App() {
                             onSectionChange={setSection}
                         />
                         <Scroll>
-                            <RoomScene section={section} />
+                            <RoomScene
+                                section={section}
+                                menuOpened={menuOpened}
+                            />
                         </Scroll>
                         <Scroll html>
                             <Interface />

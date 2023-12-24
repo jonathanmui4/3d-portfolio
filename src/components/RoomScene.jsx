@@ -12,13 +12,13 @@ import { useControls } from "leva";
 import { Avatar } from "./Avatar";
 import { Room } from "./Room";
 
-const RoomScene = ({ section }) => {
-    const { animation } = useControls({
-        animation: {
-            value: "Typing",
-            options: ["Typing", "Standing", "Falling"],
-        },
-    });
+const RoomScene = ({ section, menuOpened }) => {
+    // const { animation } = useControls({
+    //     animation: {
+    //         value: "Typing",
+    //         options: ["Typing", "Standing", "Falling"],
+    //     },
+    // });
     return (
         <>
             <Environment preset="apartment" />
@@ -30,7 +30,7 @@ const RoomScene = ({ section }) => {
                     y: section === 0 ? -1 : -2,
                 }}
             >
-                <Room />
+                <Room section={section} />
             </motion.group>
         </>
     );
