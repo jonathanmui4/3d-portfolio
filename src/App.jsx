@@ -7,6 +7,8 @@ import { Scroll, ScrollControls } from "@react-three/drei";
 import Interface from "./components/Interface";
 import ScrollManager from "./components/ScrollManager";
 import { MotionConfig } from "framer-motion";
+import { generalTransition } from "./utils/motion";
+import HologramScene from "./components/HologramScene";
 
 function App() {
     const [section, setSection] = useState(0);
@@ -20,11 +22,7 @@ function App() {
         <div className="absolute top-0 left-0 z-0 w-full h-screen bg-primary">
             <MotionConfig
                 transition={{
-                    type: "spring",
-                    damping: 20,
-                    stiffness: 100,
-                    mass: 1,
-                    restDelta: 0.01,
+                    ...generalTransition,
                 }}
             >
                 <Canvas
@@ -43,6 +41,10 @@ function App() {
                         />
                         <Scroll>
                             <RoomScene
+                                section={section}
+                                menuOpened={menuOpened}
+                            />
+                            <HologramScene
                                 section={section}
                                 menuOpened={menuOpened}
                             />
