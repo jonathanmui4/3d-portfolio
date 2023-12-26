@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
 import { Environment } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
@@ -17,8 +18,14 @@ const RoomScene = ({ section, menuOpened }) => {
     //     },
     // });
 
+    const characterContainerRoomRef = useRef();
+
     const cameraPositionX = useMotionValue();
     const cameraLookAtX = useMotionValue();
+
+    // console.log("section", section);
+    // console.log("cameraPositionX", cameraPositionX);
+    // console.log("cameraLookAtX", cameraLookAtX);
 
     useEffect(() => {
         animate(cameraPositionX, menuOpened ? -5 : 0, { ...generalTransition });
@@ -28,10 +35,30 @@ const RoomScene = ({ section, menuOpened }) => {
     useFrame((state) => {
         state.camera.position.x = cameraPositionX.get();
         state.camera.lookAt(cameraLookAtX.get(), 0, 0);
+
+        /**  Calculate the position and rotation of the avatar wrt world
+        const position = new THREE.Vector3();
+        characterContainerRoomRef.current.getWorldPosition(position);
+        // console.log("position", [position.x, position.y, position.z]);
+
+        const quaternion = new THREE.Quaternion();
+        characterContainerRoomRef.current.getWorldQuaternion(quaternion);
+        const euler = new THREE.Euler();
+        euler.setFromQuaternion(quaternion, "XYZ");
+
+        console.log("euler", [euler.x, euler.y, euler.z]);
+        */
     });
 
     return (
         <>
+            <group
+                position={[2.636203151125506, -0.5, 2.636203151125506]}
+                rotation={[Math.PI, -0.7796018366025513, Math.PI]}
+                scale={1.55}
+            >
+                <Avatar animation={section === 0 ? "Typing" : "Standing"} />
+            </group>
             <Environment preset="apartment" />
             <motion.group
                 position={[4, 0, 4]}
@@ -42,6 +69,13 @@ const RoomScene = ({ section, menuOpened }) => {
                 }}
             >
                 <Room section={section} />
+                <group
+                    ref={characterContainerRoomRef}
+                    name="AvatarSpot"
+                    position={[-2.143, 0.466, 0]}
+                    rotation={[Math.PI, -1.565, Math.PI]}
+                    scale={1.825}
+                ></group>
             </motion.group>
         </>
     );

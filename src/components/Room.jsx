@@ -9,510 +9,770 @@ import { useGLTF } from "@react-three/drei";
 
 export function Room(props) {
     const { section } = props;
-    const { nodes, materials } = useGLTF("models/Room.glb");
+    const { nodes, materials } = useGLTF("models/room_grouped.glb");
+
     return (
         <group {...props} dispose={null}>
-            <motion.group
-                position={[-1.852, 0.09, -0.021]}
-                rotation={[-Math.PI / 2, 0, -1.576]}
-                // scale={2.009}
-                scale={[0, 0, 0]}
-                animate={{
-                    scale: section === 0 ? 2.009 : 1.5,
-                }}
-            >
-                <group rotation={[Math.PI / 2, 0, 0]}>
-                    <group scale={0.01}>
+            <group name="Scene">
+                <mesh
+                    name="Plane"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Plane.geometry}
+                    material={materials.Walls}
+                    scale={4}
+                />
+                <group name="Drawers" scale={[1, 0.882, 1]}>
+                    <mesh
+                        name="Cube001"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Cube001.geometry}
+                        material={materials.White}
+                    />
+                    <mesh
+                        name="Cube001_1"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Cube001_1.geometry}
+                        material={materials.DarkGrey}
+                    />
+                </group>
+                <mesh
+                    name="TableTop"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.TableTop.geometry}
+                    material={materials.White}
+                    position={[-3.573, 1.646, -0.028]}
+                    scale={[0.391, 0.07, 4]}
+                />
+                <group
+                    name="Plane002"
+                    position={[0.234, 2.689, -4]}
+                    rotation={[-Math.PI / 2, 0, 0]}
+                    scale={[1.707, 1, 1]}
+                >
+                    <mesh
+                        name="Plane002_1"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane002_1.geometry}
+                        material={materials.Black}
+                    />
+                    <mesh
+                        name="Plane002_2"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane002_2.geometry}
+                        material={materials.f1Screen}
+                    />
+                </group>
+                <group name="f1ImageRef" rotation={[1.242, 0.33, -0.76]} />
+                <group name="MonitorsPos">
+                    <group name="Cube002" position={[-0.154, -0.784, 0]}>
                         <mesh
+                            name="Cube002_1"
                             castShadow
                             receiveShadow
-                            geometry={nodes.ChairBack_LP_lambert1_0.geometry}
-                            material={materials.lambert1}
+                            geometry={nodes.Cube002_1.geometry}
+                            material={materials.Black}
                         />
                         <mesh
+                            name="Cube002_2"
                             castShadow
                             receiveShadow
-                            geometry={nodes.ChairSeat_LP4_lambert1_0.geometry}
-                            material={materials.lambert1}
+                            geometry={nodes.Cube002_2.geometry}
+                            material={materials["Material.003"]}
+                        />
+                    </group>
+                    <mesh
+                        name="Cube003"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Cube003.geometry}
+                        material={materials.Black}
+                        position={[-3.732, 1.982, -0.07]}
+                        rotation={[0, 0, -Math.PI]}
+                        scale={[-0.051, -0.199, -0.099]}
+                    />
+                    <group
+                        name="Cube004"
+                        position={[-3.541, 2.789, 1.931]}
+                        rotation={[0, 0.21, 0]}
+                    >
+                        <mesh
+                            name="Cube004_1"
+                            castShadow
+                            receiveShadow
+                            geometry={nodes.Cube004_1.geometry}
+                            material={materials.Black}
                         />
                         <mesh
+                            name="Cube004_2"
                             castShadow
                             receiveShadow
-                            geometry={nodes.Leg_LP1_lambert1_0.geometry}
-                            material={materials.lambert1}
+                            geometry={nodes.Cube004_2.geometry}
+                            material={materials["Material.001"]}
+                        />
+                    </group>
+                    <group
+                        name="Cube005"
+                        position={[-0.07, -0.784, -1.359]}
+                        rotation={[0, -0.184, 0]}
+                    >
+                        <mesh
+                            name="Cube005_1"
+                            castShadow
+                            receiveShadow
+                            geometry={nodes.Cube005_1.geometry}
+                            material={materials.Black}
                         />
                         <mesh
+                            name="Cube005_2"
                             castShadow
                             receiveShadow
-                            geometry={nodes.Leg_LP2_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[5.602, 0, 4.07]}
-                            rotation={[0, -1.257, 0]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Leg_LP3_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[3.463, 0, 10.655]}
-                            rotation={[Math.PI, -Math.PI / 5, Math.PI]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Leg_LP4_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-3.462, 0, 10.655]}
-                            rotation={[-Math.PI, Math.PI / 5, -Math.PI]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Leg_LP5_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-5.602, 0, 4.07]}
-                            rotation={[0, 1.257, 0]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.pCube37_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-33.983, 64.178, -14.779]}
-                            scale={[0.061, 0.036, 0.062]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.pCube38_lambert1_0.geometry}
-                            material={materials.lambert1}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.pCylinder25_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-58.139, 0, 48.659]}
-                            rotation={[-Math.PI, 0.114, -Math.PI]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.pCylinder26_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[31.27, 0, -31.948]}
-                            rotation={[0, 0.895, 0]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.pCylinder27_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-3.632, 0, 3.211]}
-                            rotation={[0, 1.2, 0]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.pCylinder28_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-26.088, 0, -16.813]}
-                            rotation={[-Math.PI, 0.492, -Math.PI]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.pCylinder29_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-64.369, 0, -4.511]}
-                            rotation={[-Math.PI, 0.495, -Math.PI]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Underside_LP_lambert1_0.geometry}
-                            material={materials.lambert1}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Wheel_LP_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-58.139, 0, 48.659]}
-                            rotation={[-Math.PI, 0.114, -Math.PI]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Wheel_LP1_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[31.27, 0, -31.948]}
-                            rotation={[0, 0.895, 0]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Wheel_LP2_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-3.632, 0, 3.211]}
-                            rotation={[0, 1.2, 0]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Wheel_LP3_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-26.088, 0, -16.813]}
-                            rotation={[-Math.PI, 0.492, -Math.PI]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Wheel_LP4_lambert1_0.geometry}
-                            material={materials.lambert1}
-                            position={[-64.369, 0, -4.511]}
-                            rotation={[-Math.PI, 0.495, -Math.PI]}
+                            geometry={nodes.Cube005_2.geometry}
+                            material={materials["Material.002"]}
                         />
                     </group>
                 </group>
-            </motion.group>
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Plane.geometry}
-                material={materials.Walls}
-                scale={4}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube001.geometry}
-                material={materials.White}
-                position={[-3.543, 1.863, -0.028]}
-                scale={[0.391, 0.07, 4]}
-            />
-            <group position={[-0.154, -0.563, 0]}>
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Cube002_1.geometry}
-                    material={materials.Black}
-                />
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Cube002_2.geometry}
-                    material={materials["Material.003"]}
-                />
-            </group>
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube003.geometry}
-                material={materials.Black}
-                position={[-3.732, 2.202, -0.07]}
-                rotation={[0, 0, -Math.PI]}
-                scale={[-0.051, -0.199, -0.099]}
-            />
-            <group position={[-3.541, 3.01, 1.931]} rotation={[0, 0.21, 0]}>
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Cube004_1.geometry}
-                    material={materials.Black}
-                />
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Cube004_2.geometry}
-                    material={materials["Material.001"]}
-                />
-            </group>
-            <group position={[-0.07, -0.563, -1.359]} rotation={[0, -0.184, 0]}>
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Cube005_1.geometry}
-                    material={materials.Black}
-                />
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Cube005_2.geometry}
-                    material={materials["Material.002"]}
-                />
-            </group>
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube006.geometry}
-                material={nodes.Cube006.material}
-                position={[2.409, 0.226, 2.099]}
-                rotation={[0, 0, -Math.PI]}
-                scale={[-1, -0.226, -1.784]}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube007.geometry}
-                material={nodes.Cube007.material}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube008.geometry}
-                material={nodes.Cube008.material}
-                position={[4.859, 1.197, 0]}
-                rotation={[0, 0, Math.PI]}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Plane001.geometry}
-                material={materials.Material}
-                position={[2.41, 1.319, 1.868]}
-                scale={[1.139, 1.051, 1.581]}
-            />
-            <motion.mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube009.geometry}
-                material={nodes.Cube009.material}
-                position={[2.807, 0.843, 3.218]}
-            />
-            <motion.group
-                position={[0.234, 2.689, -4]}
-                rotation={[-Math.PI / 2, 0, 0]}
-                // scale={[1.707, 1, 1]}
-                scale={[0, 0, 0]}
-                animate={{
-                    scale: section === 0 ? [1.707, 1, 1] : [0.8, 0.5, 0.5],
-                }}
-            >
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Plane002_1.geometry}
-                    material={materials.Black}
-                />
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Plane002_2.geometry}
-                    material={materials.f1Screen}
-                />
-            </motion.group>
-            <group
-                position={[-3.463, 1.944, -0.059]}
-                rotation={[-Math.PI / 2, 0, Math.PI / 2]}
-            >
-                <group rotation={[Math.PI / 2, 0, 0]}>
+                <group name="Bed">
+                    <mesh
+                        name="Cube006"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Cube006.geometry}
+                        material={nodes.Cube006.material}
+                        position={[2.409, 0.226, 2.099]}
+                        rotation={[0, 0, -Math.PI]}
+                        scale={[-1, -0.226, -1.784]}
+                    />
+                    <mesh
+                        name="Cube007"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Cube007.geometry}
+                        material={nodes.Cube007.material}
+                    />
+                    <mesh
+                        name="Cube008"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Cube008.geometry}
+                        material={nodes.Cube008.material}
+                        position={[4.859, 1.197, 0]}
+                        rotation={[0, 0, Math.PI]}
+                    />
+                    <mesh
+                        name="Cube009"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Cube009.geometry}
+                        material={nodes.Cube009.material}
+                        position={[2.807, 0.843, 3.218]}
+                    />
+                    <mesh
+                        name="Plane001"
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Plane001.geometry}
+                        material={materials.Material}
+                        position={[2.41, 1.319, 1.868]}
+                        scale={[1.139, 1.051, 1.581]}
+                    />
+                </group>
+                <group name="ChairPos">
                     <group
-                        position={[-0.018, 0.074, 0.11]}
-                        rotation={[0.024, 0, 0]}
-                        scale={[0.318, 0.075, 0.137]}
+                        name="Sketchfab_model001"
+                        position={[-1.852, 0.09, -0.021]}
+                        rotation={[-Math.PI / 2, 0, -1.576]}
+                        scale={2.555}
                     >
                         <group
-                            position={[-0.143, -0.567, 0.718]}
-                            scale={[0.104, 0.439, 0.241]}
+                            name="OfficeChairFull_LPfbx"
+                            rotation={[Math.PI / 2, 0, 0]}
                         >
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_10.geometry}
-                                material={materials.White_Keys_7}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_11.geometry}
-                                material={materials.Black_Keys_1}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_12.geometry}
-                                material={materials["Arrow.001"]}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_13.geometry}
-                                material={materials.White_Keys_3}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_14.geometry}
-                                material={materials.Black_Keys_5}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_15.geometry}
-                                material={materials.Black_keys_4}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_16.geometry}
-                                material={materials.Black_Keys_3}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_17.geometry}
-                                material={materials.material}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_18.geometry}
-                                material={materials.White_Keys_4}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_19.geometry}
-                                material={materials.Black_Keys_2}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_20.geometry}
-                                material={materials.White_Keys_5}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_21.geometry}
-                                material={materials["Material.005"]}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_22.geometry}
-                                material={materials["Material.006"]}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_5.geometry}
-                                material={materials.Space}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_6.geometry}
-                                material={materials.White_Keys_2}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_7.geometry}
-                                material={materials["Material.004"]}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_8.geometry}
-                                material={materials.Shift_Arrow}
-                            />
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.Object_9.geometry}
-                                material={materials.White_Keys_1}
-                            />
+                            <group name="RootNode">
+                                <group name="OfficeChair_LP" scale={0.01}>
+                                    <group name="ChairBack_LP">
+                                        <mesh
+                                            name="ChairBack_LP_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.ChairBack_LP_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group name="ChairSeat_LP4">
+                                        <mesh
+                                            name="ChairSeat_LP4_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.ChairSeat_LP4_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group name="Leg_LP1">
+                                        <mesh
+                                            name="Leg_LP1_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Leg_LP1_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Leg_LP2"
+                                        position={[5.602, 0, 4.07]}
+                                        rotation={[0, -1.257, 0]}
+                                    >
+                                        <mesh
+                                            name="Leg_LP2_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Leg_LP2_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Leg_LP3"
+                                        position={[3.463, 0, 10.655]}
+                                        rotation={[
+                                            Math.PI,
+                                            -Math.PI / 5,
+                                            Math.PI,
+                                        ]}
+                                    >
+                                        <mesh
+                                            name="Leg_LP3_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Leg_LP3_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Leg_LP4"
+                                        position={[-3.462, 0, 10.655]}
+                                        rotation={[
+                                            -Math.PI,
+                                            Math.PI / 5,
+                                            -Math.PI,
+                                        ]}
+                                    >
+                                        <mesh
+                                            name="Leg_LP4_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Leg_LP4_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Leg_LP5"
+                                        position={[-5.602, 0, 4.07]}
+                                        rotation={[0, 1.257, 0]}
+                                    >
+                                        <mesh
+                                            name="Leg_LP5_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Leg_LP5_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="pCube37"
+                                        position={[-33.983, 64.178, -14.779]}
+                                        scale={[0.061, 0.036, 0.062]}
+                                    >
+                                        <mesh
+                                            name="pCube37_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.pCube37_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group name="pCube38">
+                                        <mesh
+                                            name="pCube38_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.pCube38_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="pCylinder25"
+                                        position={[-58.139, 0, 48.659]}
+                                        rotation={[-Math.PI, 0.114, -Math.PI]}
+                                    >
+                                        <mesh
+                                            name="pCylinder25_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.pCylinder25_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="pCylinder26"
+                                        position={[31.27, 0, -31.948]}
+                                        rotation={[0, 0.895, 0]}
+                                    >
+                                        <mesh
+                                            name="pCylinder26_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.pCylinder26_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="pCylinder27"
+                                        position={[-3.632, 0, 3.211]}
+                                        rotation={[0, 1.2, 0]}
+                                    >
+                                        <mesh
+                                            name="pCylinder27_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.pCylinder27_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="pCylinder28"
+                                        position={[-26.088, 0, -16.813]}
+                                        rotation={[-Math.PI, 0.492, -Math.PI]}
+                                    >
+                                        <mesh
+                                            name="pCylinder28_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.pCylinder28_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="pCylinder29"
+                                        position={[-64.369, 0, -4.511]}
+                                        rotation={[-Math.PI, 0.495, -Math.PI]}
+                                    >
+                                        <mesh
+                                            name="pCylinder29_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.pCylinder29_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group name="Underside_LP">
+                                        <mesh
+                                            name="Underside_LP_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Underside_LP_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Wheel_LP"
+                                        position={[-58.139, 0, 48.659]}
+                                        rotation={[-Math.PI, 0.114, -Math.PI]}
+                                    >
+                                        <mesh
+                                            name="Wheel_LP_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Wheel_LP_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Wheel_LP1"
+                                        position={[31.27, 0, -31.948]}
+                                        rotation={[0, 0.895, 0]}
+                                    >
+                                        <mesh
+                                            name="Wheel_LP1_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Wheel_LP1_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Wheel_LP2"
+                                        position={[-3.632, 0, 3.211]}
+                                        rotation={[0, 1.2, 0]}
+                                    >
+                                        <mesh
+                                            name="Wheel_LP2_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Wheel_LP2_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Wheel_LP3"
+                                        position={[-26.088, 0, -16.813]}
+                                        rotation={[-Math.PI, 0.492, -Math.PI]}
+                                    >
+                                        <mesh
+                                            name="Wheel_LP3_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Wheel_LP3_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Wheel_LP4"
+                                        position={[-64.369, 0, -4.511]}
+                                        rotation={[-Math.PI, 0.495, -Math.PI]}
+                                    >
+                                        <mesh
+                                            name="Wheel_LP4_lambert1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={
+                                                nodes.Wheel_LP4_lambert1_0
+                                                    .geometry
+                                            }
+                                            material={materials.lambert1}
+                                        />
+                                    </group>
+                                </group>
+                            </group>
                         </group>
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_24.geometry}
-                            material={materials.Polycarbonate_Case}
-                            position={[0.778, -1.016, -0.785]}
-                            rotation={[-0.028, 0, 0]}
-                            scale={[3.149, 13.351, 7.317]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_26.geometry}
-                            material={materials.Alumunium_Knob}
-                            position={[0.854, -0.383, -0.669]}
-                            rotation={[0.059, 0, 0]}
-                            scale={[3.116, 13.472, 7.256]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_28.geometry}
-                            material={materials.Polycarbonate_Case}
-                            position={[-0.571, -0.58, 0.014]}
-                            rotation={[0.039, 0, 0]}
-                            scale={[3.149, 13.349, 7.322]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_30.geometry}
-                            material={materials.Polycarbonate_Case}
-                            position={[0.008, -0.95, -0.01]}
-                            rotation={[-0.005, 0, 0]}
-                            scale={[3.149, 13.354, 7.312]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_32.geometry}
-                            material={materials.Polycarbonate_Case}
-                            position={[-0.724, -1.008, 0.795]}
-                            rotation={[-0.005, 0, 0]}
-                            scale={[3.149, 13.354, 7.312]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_34.geometry}
-                            material={materials.Polycarbonate_Case}
-                            position={[-0.881, -1.05, -0.624]}
-                            rotation={[0.015, 0, 0]}
-                            scale={[3.149, 13.353, 7.314]}
-                        />
-                        <mesh
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_36.geometry}
-                            material={materials.Plate_Metal}
-                            position={[0.01, -0.595, 0.039]}
-                            rotation={[-0.021, 0, 0]}
-                            scale={[3.149, 13.352, 7.315]}
-                        />
+                    </group>
+                </group>
+                <group name="Keyboard">
+                    <group
+                        name="Sketchfab_model"
+                        position={[-3.463, 1.743, -0.059]}
+                        rotation={[-Math.PI / 2, 0, Math.PI / 2]}
+                    >
+                        <group name="root">
+                            <group
+                                name="GLTF_SceneRootNode"
+                                rotation={[Math.PI / 2, 0, 0]}
+                            >
+                                <group
+                                    name="Empty003_10"
+                                    position={[-0.018, 0.074, 0.11]}
+                                    rotation={[0.024, 0, 0]}
+                                    scale={[0.318, 0.075, 0.137]}
+                                >
+                                    <group
+                                        name="Cube125_2"
+                                        position={[-0.143, -0.567, 0.718]}
+                                        scale={[0.104, 0.439, 0.241]}
+                                    >
+                                        <mesh
+                                            name="Object_10"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_10.geometry}
+                                            material={materials.White_Keys_7}
+                                        />
+                                        <mesh
+                                            name="Object_11"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_11.geometry}
+                                            material={materials.Black_Keys_1}
+                                        />
+                                        <mesh
+                                            name="Object_12"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_12.geometry}
+                                            material={materials["Arrow.001"]}
+                                        />
+                                        <mesh
+                                            name="Object_13"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_13.geometry}
+                                            material={materials.White_Keys_3}
+                                        />
+                                        <mesh
+                                            name="Object_14"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_14.geometry}
+                                            material={materials.Black_Keys_5}
+                                        />
+                                        <mesh
+                                            name="Object_15"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_15.geometry}
+                                            material={materials.Black_keys_4}
+                                        />
+                                        <mesh
+                                            name="Object_16"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_16.geometry}
+                                            material={materials.Black_Keys_3}
+                                        />
+                                        <mesh
+                                            name="Object_17"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_17.geometry}
+                                            material={materials.material}
+                                        />
+                                        <mesh
+                                            name="Object_18"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_18.geometry}
+                                            material={materials.White_Keys_4}
+                                        />
+                                        <mesh
+                                            name="Object_19"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_19.geometry}
+                                            material={materials.Black_Keys_2}
+                                        />
+                                        <mesh
+                                            name="Object_20"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_20.geometry}
+                                            material={materials.White_Keys_5}
+                                        />
+                                        <mesh
+                                            name="Object_21"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_21.geometry}
+                                            material={materials["Material.005"]}
+                                        />
+                                        <mesh
+                                            name="Object_22"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_22.geometry}
+                                            material={materials["Material.006"]}
+                                        />
+                                        <mesh
+                                            name="Object_5"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_5.geometry}
+                                            material={materials.Space}
+                                        />
+                                        <mesh
+                                            name="Object_6"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_6.geometry}
+                                            material={materials.White_Keys_2}
+                                        />
+                                        <mesh
+                                            name="Object_7"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_7.geometry}
+                                            material={materials["Material.004"]}
+                                        />
+                                        <mesh
+                                            name="Object_8"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_8.geometry}
+                                            material={materials.Shift_Arrow}
+                                        />
+                                        <mesh
+                                            name="Object_9"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_9.geometry}
+                                            material={materials.White_Keys_1}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Cube230_3"
+                                        position={[0.778, -1.016, -0.785]}
+                                        rotation={[-0.028, 0, 0]}
+                                        scale={[3.149, 13.351, 7.317]}
+                                    >
+                                        <mesh
+                                            name="Object_24"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_24.geometry}
+                                            material={
+                                                materials.Polycarbonate_Case
+                                            }
+                                        />
+                                    </group>
+                                    <group
+                                        name="Cylinder_4"
+                                        position={[0.854, -0.383, -0.669]}
+                                        rotation={[0.059, 0, 0]}
+                                        scale={[3.116, 13.472, 7.256]}
+                                    >
+                                        <mesh
+                                            name="Object_26"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_26.geometry}
+                                            material={materials.Alumunium_Knob}
+                                        />
+                                    </group>
+                                    <group
+                                        name="Plane002_5"
+                                        position={[-0.571, -0.58, 0.014]}
+                                        rotation={[0.039, 0, 0]}
+                                        scale={[3.149, 13.349, 7.322]}
+                                    >
+                                        <mesh
+                                            name="Object_28"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_28.geometry}
+                                            material={
+                                                materials.Polycarbonate_Case
+                                            }
+                                        />
+                                    </group>
+                                    <group
+                                        name="Plane005_6"
+                                        position={[0.008, -0.95, -0.01]}
+                                        rotation={[-0.005, 0, 0]}
+                                        scale={[3.149, 13.354, 7.312]}
+                                    >
+                                        <mesh
+                                            name="Object_30"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_30.geometry}
+                                            material={
+                                                materials.Polycarbonate_Case
+                                            }
+                                        />
+                                    </group>
+                                    <group
+                                        name="Plane006_7"
+                                        position={[-0.724, -1.008, 0.795]}
+                                        rotation={[-0.005, 0, 0]}
+                                        scale={[3.149, 13.354, 7.312]}
+                                    >
+                                        <mesh
+                                            name="Object_32"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_32.geometry}
+                                            material={
+                                                materials.Polycarbonate_Case
+                                            }
+                                        />
+                                    </group>
+                                    <group
+                                        name="Plane010_8"
+                                        position={[-0.881, -1.05, -0.624]}
+                                        rotation={[0.015, 0, 0]}
+                                        scale={[3.149, 13.353, 7.314]}
+                                    >
+                                        <mesh
+                                            name="Object_34"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_34.geometry}
+                                            material={
+                                                materials.Polycarbonate_Case
+                                            }
+                                        />
+                                    </group>
+                                    <group
+                                        name="Plane012_9"
+                                        position={[0.01, -0.595, 0.039]}
+                                        rotation={[-0.021, 0, 0]}
+                                        scale={[3.149, 13.352, 7.315]}
+                                    >
+                                        <mesh
+                                            name="Object_36"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.Object_36.geometry}
+                                            material={materials.Plate_Metal}
+                                        />
+                                    </group>
+                                </group>
+                            </group>
+                        </group>
                     </group>
                 </group>
             </group>
-            {/* <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane003.geometry}
-        material={materials.Black}
-        position={[0, -0.578, 0]}
-        scale={-21.957}
-      /> */}
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube001_1.geometry}
-                material={materials.White}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube001_2.geometry}
-                material={materials.DarkGrey}
-            />
         </group>
     );
 }
 
-useGLTF.preload("models/Room.glb");
+useGLTF.preload("models/room_grouped.glb");
