@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { Environment } from "@react-three/drei";
+import { Environment, useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import { animate, useMotionValue } from "framer-motion";
@@ -10,7 +10,7 @@ import { Avatar } from "./Avatar";
 import { Room } from "./Room";
 import { generalTransition } from "../utils/motion";
 
-const RoomScene = ({ section, menuOpened }) => {
+const RoomScene = ({ menuOpened }) => {
     // const { animation } = useControls({
     //     animation: {
     //         value: "Typing",
@@ -19,7 +19,8 @@ const RoomScene = ({ section, menuOpened }) => {
     // });
 
     const { viewport } = useThree();
-
+    const [section, setSection] = useState(0);
+    const data = useScroll();
     const characterContainerRoomRef = useRef();
 
     const [characterAnimation, setCharacterAnimation] = useState("Typing");
@@ -34,26 +35,35 @@ const RoomScene = ({ section, menuOpened }) => {
     const cameraLookAtX = useMotionValue();
 
     useEffect(() => {
-        animate(cameraPositionX, menuOpened ? -5 : 0, { ...generalTransition });
-        animate(cameraLookAtX, menuOpened ? 5 : 0, { ...generalTransition });
-    }, [menuOpened]);
+        // Ensure motion values are defined before animating
+        if (cameraPositionX && cameraLookAtX) {
+            animate(cameraPositionX, menuOpened ? -5 : 0, {
+                ...generalTransition,
+            });
+            animate(cameraLookAtX, menuOpened ? 5 : 0, {
+                ...generalTransition,
+            });
+        }
+    }, [menuOpened, cameraPositionX, cameraLookAtX]);
 
     useFrame((state) => {
+        let curSection = Math.floor(data.scroll.current * data.pages);
+
+        if (curSection > 4) {
+            curSection = 4;
+        }
+
+        if (curSection !== section) {
+            setSection(curSection);
+            // if (curSection === 0) {
+            //     setCharacterAnimation("Typing");
+            // } else {
+            //     setCharacterAnimation("Standing");
+            // }
+        }
+
         state.camera.position.x = cameraPositionX.get();
         state.camera.lookAt(cameraLookAtX.get(), 0, 0);
-
-        /**  Calculate the position and rotation of the avatar wrt world
-        const position = new THREE.Vector3();
-        characterContainerRoomRef.current.getWorldPosition(position);
-        // console.log("position", [position.x, position.y, position.z]);
-
-        const quaternion = new THREE.Quaternion();
-        characterContainerRoomRef.current.getWorldQuaternion(quaternion);
-        const euler = new THREE.Euler();
-        euler.setFromQuaternion(quaternion, "XYZ");
-
-        console.log("euler", [euler.x, euler.y, euler.z]);
-        */
     });
 
     return (
@@ -64,16 +74,19 @@ const RoomScene = ({ section, menuOpened }) => {
                 scale={1.55}
                 animate={"" + section}
                 transition={{
-                    duration: 0.6,
+                    duration: 0.8,
                 }}
                 variants={{
                     1: {
-                        x: 0,
-                        y: -viewport.height + 0.5,
+                        x: 3,
+                        y: -viewport.height - 3,
                         z: 0,
                         rotateX: 0,
                         rotateY: 0,
                         rotateZ: 0,
+                        scaleX: 3,
+                        scaleY: 3,
+                        scaleZ: 3,
                     },
                 }}
             >
@@ -95,7 +108,7 @@ const RoomScene = ({ section, menuOpened }) => {
                     position={[-2.143, 0.466, 0]}
                     rotation={[Math.PI, -1.565, Math.PI]}
                     scale={1.825}
-                ></group>
+                />
             </motion.group>
         </>
     );

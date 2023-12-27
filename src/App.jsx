@@ -40,10 +40,7 @@ function App() {
                             onSectionChange={setSection}
                         />
                         <Scroll>
-                            <RoomScene
-                                section={section}
-                                menuOpened={menuOpened}
-                            />
+                            <RoomScene menuOpened={menuOpened} />
                             <HologramScene
                                 section={section}
                                 menuOpened={menuOpened}
