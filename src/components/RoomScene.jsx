@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unknown-property */
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Environment } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import { animate, useMotionValue } from "framer-motion";
 import { useControls } from "leva";
@@ -18,14 +18,20 @@ const RoomScene = ({ section, menuOpened }) => {
     //     },
     // });
 
+    const { viewport } = useThree();
+
     const characterContainerRoomRef = useRef();
+
+    const [characterAnimation, setCharacterAnimation] = useState("Typing");
+    useEffect(() => {
+        setCharacterAnimation("Falling");
+        setTimeout(() => {
+            setCharacterAnimation(section === 0 ? "Typing" : "Standing");
+        }, 600);
+    }, [section]);
 
     const cameraPositionX = useMotionValue();
     const cameraLookAtX = useMotionValue();
-
-    // console.log("section", section);
-    // console.log("cameraPositionX", cameraPositionX);
-    // console.log("cameraLookAtX", cameraLookAtX);
 
     useEffect(() => {
         animate(cameraPositionX, menuOpened ? -5 : 0, { ...generalTransition });
@@ -52,13 +58,27 @@ const RoomScene = ({ section, menuOpened }) => {
 
     return (
         <>
-            <group
+            <motion.group
                 position={[2.636203151125506, -0.5, 2.636203151125506]}
                 rotation={[Math.PI, -0.7796018366025513, Math.PI]}
                 scale={1.55}
+                animate={"" + section}
+                transition={{
+                    duration: 0.6,
+                }}
+                variants={{
+                    1: {
+                        x: 0,
+                        y: -viewport.height + 0.5,
+                        z: 0,
+                        rotateX: 0,
+                        rotateY: 0,
+                        rotateZ: 0,
+                    },
+                }}
             >
-                <Avatar animation={section === 0 ? "Typing" : "Standing"} />
-            </group>
+                <Avatar animation={characterAnimation} />
+            </motion.group>
             <Environment preset="apartment" />
             <motion.group
                 position={[4, 0, 4]}
