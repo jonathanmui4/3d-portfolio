@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import RoomScene from "./components/RoomScene";
 import Menu from "./components/Menu";
 import { Scroll, ScrollControls } from "@react-three/drei";
-import Interface from "./components/Interface";
+import { Interface } from "./components/Interface";
 import ScrollManager from "./components/ScrollManager";
 import { MotionConfig } from "framer-motion";
 import { generalTransition } from "./utils/motion";
