@@ -9,10 +9,10 @@ const Interface = () => {
         <div className="flex flex-col items-center w-screen">
             <AboutSection />
             <SkillsSection />
-            <Section>
+            <Section idName={"Experience"}>
                 <h1>Experience</h1>
             </Section>
-            <Section>
+            <Section idName={"Projects"}>
                 <h1>Projects</h1>
             </Section>
             <ContactSection />

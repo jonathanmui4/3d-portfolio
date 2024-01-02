@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import { BrowserRouter } from "react-router-dom";
 import RoomScene from "./components/RoomScene";
 import Menu from "./components/Menu";
 import { Scroll, ScrollControls } from "@react-three/drei";
@@ -19,45 +20,47 @@ function App() {
     }, [section]);
 
     return (
-        <div className="absolute top-0 left-0 z-0 w-full h-screen bg-primary">
-            <MotionConfig
-                transition={{
-                    ...generalTransition,
-                }}
-            >
-                <Canvas
-                    shadows
-                    camera={{
-                        position: [0, 3, 25],
-                        fov: 30,
+        <BrowserRouter>
+            <div className="absolute top-0 left-0 z-0 w-full h-screen bg-primary">
+                <MotionConfig
+                    transition={{
+                        ...generalTransition,
                     }}
                 >
-                    {/* <color attach="background" args={["#e6e7ff"]} /> */}
-                    <color attach="background" args={["#050816"]} />
-                    <ScrollControls pages={5} damping={0.1}>
-                        <ScrollManager
-                            section={section}
-                            onSectionChange={setSection}
-                        />
-                        <Scroll>
-                            <RoomScene menuOpened={menuOpened} />
-                            <HologramScene
+                    <Canvas
+                        shadows
+                        camera={{
+                            position: [0, 3, 25],
+                            fov: 30,
+                        }}
+                    >
+                        {/* <color attach="background" args={["#e6e7ff"]} /> */}
+                        <color attach="background" args={["#050816"]} />
+                        <ScrollControls pages={5} damping={0.1}>
+                            <ScrollManager
                                 section={section}
-                                menuOpened={menuOpened}
+                                onSectionChange={setSection}
                             />
-                        </Scroll>
-                        <Scroll html>
-                            <Interface />
-                        </Scroll>
-                    </ScrollControls>
-                </Canvas>
-                <Menu
-                    onSectionChange={setSection}
-                    menuOpened={menuOpened}
-                    setMenuOpened={setMenuOpened}
-                />
-            </MotionConfig>
-        </div>
+                            <Scroll>
+                                <RoomScene menuOpened={menuOpened} />
+                                <HologramScene
+                                    section={section}
+                                    menuOpened={menuOpened}
+                                />
+                            </Scroll>
+                            <Scroll html>
+                                <Interface />
+                            </Scroll>
+                        </ScrollControls>
+                    </Canvas>
+                    <Menu
+                        onSectionChange={setSection}
+                        menuOpened={menuOpened}
+                        setMenuOpened={setMenuOpened}
+                    />
+                </MotionConfig>
+            </div>
+        </BrowserRouter>
     );
 }
 

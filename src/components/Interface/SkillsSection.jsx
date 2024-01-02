@@ -37,7 +37,7 @@ const languages = [
 
 const SkillsSection = () => {
     return (
-        <Section>
+        <Section idName={"Skills"}>
             <motion.div whileInView={"visible"}>
                 <h2 className="text-5xl font-bold">Skills</h2>
                 <div className=" mt-8 space-y-4">
@@ -53,7 +53,7 @@ const SkillsSection = () => {
                                         opacity: 1,
                                         transition: {
                                             duration: 1,
-                                            delay: 1 + index * 0.2,
+                                            delay: 0.5 + index * 0.2,
                                         },
                                     },
                                 }}
@@ -73,7 +73,7 @@ const SkillsSection = () => {
                                             scaleX: 1,
                                             transition: {
                                                 duration: 1,
-                                                delay: 1 + index * 0.2,
+                                                delay: 0.5 + index * 0.2,
                                             },
                                         },
                                     }}

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Section = ({ children }) => {
+const Section = ({ children, idName }) => {
     return (
         <motion.section
             className={`

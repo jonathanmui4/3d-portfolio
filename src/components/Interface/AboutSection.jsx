@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
     return (
-        <Section>
+        <Section idName={"About"}>
             <h1 className="text-6xl font-extrabold leading-snug">
                 Hi, I'm
                 <br />
