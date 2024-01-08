@@ -43,7 +43,9 @@ const ScrollManager = ({ section, onSectionChange }) => {
     const lastScroll = useRef(0);
     const isAnimating = useRef(false);
 
-    data.fill.classList.add("fix");
+    // data.fill.classList.add("fix");
+    data.fill.classList.add("top-0");
+    data.fill.classList.add("absolute");
 
     useEffect(() => {
         function onScroll(event) {

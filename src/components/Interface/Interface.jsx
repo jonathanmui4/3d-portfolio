@@ -3,20 +3,24 @@ import Section from "./Section";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import ContactSection from "./ContactSection";
+import ExperienceSection from "./ExperienceSection";
 
 const Interface = () => {
     return (
-        <div className="flex flex-col items-center w-screen">
-            <AboutSection />
-            <SkillsSection />
-            <Section idName={"Experience"}>
-                <h1>Experience</h1>
-            </Section>
-            <Section idName={"Projects"}>
-                <h1>Projects</h1>
-            </Section>
-            <ContactSection />
-        </div>
+        <>
+            <div className="flex flex-col items-center w-screen">
+                <AboutSection />
+                <SkillsSection />
+                <ExperienceSection />
+                {/* <Section idName={"Projects"}>
+                    <h1>Experience</h1>
+                </Section> */}
+                <Section idName={"Projects"}>
+                    <h1>Projects</h1>
+                </Section>
+                <ContactSection />
+            </div>
+        </>
     );
 };
 
