@@ -2,14 +2,13 @@
 import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { BrowserRouter } from "react-router-dom";
-import RoomScene from "./components/RoomScene";
 import Menu from "./components/Menu";
 import { Scroll, ScrollControls } from "@react-three/drei";
 import { Interface } from "./components/Interface";
 import ScrollManager from "./components/ScrollManager";
 import { MotionConfig } from "framer-motion";
 import { generalTransition } from "./utils/motion";
-import HologramScene from "./components/HologramScene";
+import OverallScene from "./components/OverallScene";
 
 function App() {
     const [section, setSection] = useState(0);
@@ -36,16 +35,15 @@ function App() {
                     >
                         {/* <color attach="background" args={["#e6e7ff"]} /> */}
                         <color attach="background" args={["#050816"]} />
-                        <ScrollControls pages={5} damping={0.1}>
+                        <ScrollControls pages={4} damping={0.1}>
                             <ScrollManager
                                 section={section}
                                 onSectionChange={setSection}
                             />
                             <Scroll>
-                                <RoomScene menuOpened={menuOpened} />
-                                <HologramScene
-                                    section={section}
+                                <OverallScene
                                     menuOpened={menuOpened}
+                                    section={section}
                                 />
                             </Scroll>
                             <Scroll html>

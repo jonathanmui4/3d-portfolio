@@ -3,6 +3,7 @@ import Section from "./Section";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import ContactSection from "./ContactSection";
+import ProjectsSection from "./ProjectsSection";
 import ExperienceSection from "./ExperienceSection";
 
 const Interface = () => {
@@ -11,13 +12,14 @@ const Interface = () => {
             <div className="flex flex-col items-center w-screen">
                 <AboutSection />
                 <SkillsSection />
-                <ExperienceSection />
+                {/* <ExperienceSection /> */}
                 {/* <Section idName={"Projects"}>
                     <h1>Experience</h1>
                 </Section> */}
-                <Section idName={"Projects"}>
+                <ProjectsSection />
+                {/* <Section idName={"Projects"}>
                     <h1>Projects</h1>
-                </Section>
+                </Section> */}
                 <ContactSection />
             </div>
         </>

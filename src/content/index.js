@@ -177,69 +177,104 @@ const testimonials = [
     },
 ];
 
+// const projects = [
+//     {
+//         name: "Car Rent",
+//         description:
+//             "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+//         tags: [
+//             {
+//                 name: "react",
+//                 color: "blue-text-gradient",
+//             },
+//             {
+//                 name: "mongodb",
+//                 color: "green-text-gradient",
+//             },
+//             {
+//                 name: "tailwind",
+//                 color: "pink-text-gradient",
+//             },
+//         ],
+//         image: tesla,
+//         source_code_link: "https://github.com/",
+//     },
+//     {
+//         name: "Job IT",
+//         description:
+//             "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+//         tags: [
+//             {
+//                 name: "react",
+//                 color: "blue-text-gradient",
+//             },
+//             {
+//                 name: "restapi",
+//                 color: "green-text-gradient",
+//             },
+//             {
+//                 name: "scss",
+//                 color: "pink-text-gradient",
+//             },
+//         ],
+//         image: tesla,
+//         source_code_link: "https://github.com/",
+//     },
+//     {
+//         name: "Trip Guide",
+//         description:
+//             "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+//         tags: [
+//             {
+//                 name: "nextjs",
+//                 color: "blue-text-gradient",
+//             },
+//             {
+//                 name: "supabase",
+//                 color: "green-text-gradient",
+//             },
+//             {
+//                 name: "css",
+//                 color: "pink-text-gradient",
+//             },
+//         ],
+//         image: tesla,
+//         source_code_link: "https://github.com/",
+//     },
+// ];
+
 const projects = [
     {
-        name: "Car Rent",
+        title: "Wawatmos",
+        url: "https://r3f-wawatmos-final.vercel.app/",
+        image: "projects/Smartlamp.png",
         description:
-            "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "mongodb",
-                color: "green-text-gradient",
-            },
-            {
-                name: "tailwind",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: tesla,
-        source_code_link: "https://github.com/",
+            "Recreating the Atmos Awwwards website with React Three Fiber",
     },
     {
-        name: "Job IT",
+        title: "Portfolio Baking",
+        url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
+        image: "projects/Smartlamp.png",
         description:
-            "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "restapi",
-                color: "green-text-gradient",
-            },
-            {
-                name: "scss",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: tesla,
-        source_code_link: "https://github.com/",
+            "Learn how to bake a 3D model with Blender and use it in r3f",
     },
     {
-        name: "Trip Guide",
-        description:
-            "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-        tags: [
-            {
-                name: "nextjs",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "supabase",
-                color: "green-text-gradient",
-            },
-            {
-                name: "css",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: tesla,
-        source_code_link: "https://github.com/",
+        title: "3D Avatar",
+        url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
+        image: "projects/Smartlamp.png",
+        description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+    },
+    {
+        title: "Kanagame",
+        url: "https://www.youtube.com/watch?v=zwNF1-lsia8",
+        image: "projects/Smartlamp.png",
+        description: "Use React Three Fiber to create a 3D game",
+    },
+    {
+        title: "Loader",
+        url: "https://www.youtube.com/watch?v=L12wIvuZTOY",
+        image: "projects/Smartlamp.png",
+        description: "Create a loading screen for your r3f projects",
     },
 ];
 

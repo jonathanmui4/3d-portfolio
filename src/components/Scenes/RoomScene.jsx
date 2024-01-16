@@ -8,7 +8,7 @@ import { animate, useMotionValue } from "framer-motion";
 import { useControls } from "leva";
 import { Avatar } from "./Avatar";
 import { Room } from "./Room";
-import { generalTransition } from "../utils/motion";
+import { generalTransition } from "../../utils/motion";
 
 const RoomScene = ({ menuOpened }) => {
     // const { animation } = useControls({
@@ -25,6 +25,7 @@ const RoomScene = ({ menuOpened }) => {
 
     const [characterAnimation, setCharacterAnimation] = useState("Typing");
     useEffect(() => {
+        console.log("section", section);
         setCharacterAnimation("Falling");
         setTimeout(() => {
             setCharacterAnimation(section === 0 ? "Typing" : "Standing");
@@ -49,8 +50,8 @@ const RoomScene = ({ menuOpened }) => {
     useFrame((state) => {
         let curSection = Math.floor(data.scroll.current * data.pages);
 
-        if (curSection > 4) {
-            curSection = 4;
+        if (curSection > 3) {
+            curSection = 3;
         }
 
         if (curSection !== section) {
@@ -87,6 +88,28 @@ const RoomScene = ({ menuOpened }) => {
                         scaleX: 3,
                         scaleY: 3,
                         scaleZ: 3,
+                    },
+                    2: {
+                        x: -5,
+                        y: -viewport.height * 2 - 1.5,
+                        z: 5,
+                        rotateX: 0,
+                        rotateY: Math.PI / 2,
+                        rotateZ: 0,
+                        scaleX: 2,
+                        scaleY: 2,
+                        scaleZ: 2,
+                    },
+                    3: {
+                        y: -viewport.height * 3 - 3,
+                        x: 2,
+                        z: 5.5,
+                        rotateX: 0,
+                        rotateY: 0,
+                        rotateZ: 0,
+                        scaleX: 4,
+                        scaleY: 4,
+                        scaleZ: 4,
                     },
                 }}
             >
