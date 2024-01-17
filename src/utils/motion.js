@@ -94,7 +94,7 @@ export const staggerContainer = (staggerChildren, delayChildren) => {
 
 export const generalTransition = {
     type: "spring",
-    damping: 20,
+    damping: 30,
     stiffness: 100,
     mass: 1,
     restDelta: 0.01,

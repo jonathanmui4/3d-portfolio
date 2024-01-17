@@ -10,7 +10,7 @@ import { useFrame } from "@react-three/fiber";
 import { useControls } from "leva";
 
 export function Avatar(props) {
-    const { animation } = props;
+    const { animation, wireframe } = props;
 
     const group = useRef();
     const { nodes, materials } = useGLTF("models/MyAvatar.glb");
@@ -51,11 +51,11 @@ export function Avatar(props) {
         };
     }, [animation]);
 
-    // useEffect(() => {
-    //     Object.values(materials).forEach((material) => {
-    //         material.wireframe = wireframe;
-    //     });
-    // }, [wireframe]);
+    useEffect(() => {
+        Object.values(materials).forEach((material) => {
+            material.wireframe = wireframe;
+        });
+    }, [wireframe]);
 
     return (
         <group {...props} ref={group} dispose={null}>

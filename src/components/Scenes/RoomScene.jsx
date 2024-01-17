@@ -10,7 +10,7 @@ import { Avatar } from "./Avatar";
 import { Room } from "./Room";
 import { generalTransition } from "../../utils/motion";
 
-const RoomScene = ({ menuOpened }) => {
+const RoomScene = ({ menuOpened, isMobile, responsiveRatio }) => {
     // const { animation } = useControls({
     //     animation: {
     //         value: "Typing",
@@ -22,6 +22,12 @@ const RoomScene = ({ menuOpened }) => {
     const [section, setSection] = useState(0);
     const data = useScroll();
     const characterContainerRoomRef = useRef();
+
+    const roomScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
+    const avatarScaleRatio = Math.max(
+        0.5,
+        Math.min(1.55 * responsiveRatio, 1.55)
+    );
 
     const [characterAnimation, setCharacterAnimation] = useState("Typing");
     useEffect(() => {
@@ -47,6 +53,8 @@ const RoomScene = ({ menuOpened }) => {
         }
     }, [menuOpened, cameraPositionX, cameraLookAtX]);
 
+    const characterGroup = useRef();
+
     useFrame((state) => {
         let curSection = Math.floor(data.scroll.current * data.pages);
 
@@ -65,19 +73,31 @@ const RoomScene = ({ menuOpened }) => {
 
         state.camera.position.x = cameraPositionX.get();
         state.camera.lookAt(cameraLookAtX.get(), 0, 0);
+
+        // const postition = new THREE.Vector3();
+        if (section === 0) {
+            characterContainerRoomRef.current.getWorldPosition(
+                characterGroup.current.position
+            );
+        }
     });
 
     return (
         <>
             <motion.group
-                position={[2.636203151125506, -0.5, 2.636203151125506]}
+                ref={characterGroup}
                 rotation={[Math.PI, -0.7796018366025513, Math.PI]}
-                scale={1.55}
+                scale={[avatarScaleRatio, avatarScaleRatio, avatarScaleRatio]}
                 animate={"" + section}
                 transition={{
                     duration: 0.8,
                 }}
                 variants={{
+                    0: {
+                        scaleX: avatarScaleRatio,
+                        scaleY: avatarScaleRatio,
+                        scaleZ: avatarScaleRatio,
+                    },
                     1: {
                         x: 3,
                         y: -viewport.height - 3,
@@ -113,15 +133,23 @@ const RoomScene = ({ menuOpened }) => {
                     },
                 }}
             >
-                <Avatar animation={characterAnimation} />
+                <Avatar
+                    animation={characterAnimation}
+                    wireframe={section === 1}
+                />
             </motion.group>
             <Environment preset="apartment" />
             <motion.group
-                position={[4, 0, 4]}
+                position={[
+                    isMobile ? 0 : 4,
+                    isMobile ? -viewport.height / 6 : 0,
+                    4,
+                ]}
+                // position={[4, 0, 4]}
                 rotation-y={-Math.PI / 4}
-                scale={[0.9, 0.9, 0.9]}
+                scale={[roomScaleRatio, roomScaleRatio, roomScaleRatio]}
                 animate={{
-                    y: section === 0 ? -1 : -2,
+                    y: isMobile ? -viewport.height / 6 : 0,
                 }}
             >
                 <Room section={section} />

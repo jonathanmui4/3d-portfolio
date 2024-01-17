@@ -39,12 +39,12 @@ const SkillsSection = () => {
     return (
         <Section idName={"Skills"}>
             <motion.div whileInView={"visible"}>
-                <h2 className="text-5xl font-bold">Skills</h2>
+                <h2 className="text-3xl md:text-5xl font-bold">Skills</h2>
                 <div className=" mt-8 space-y-4">
                     {skills.map((skill, index) => (
-                        <div className="w-64" key={index}>
+                        <div className="w-full md:w-64" key={index}>
                             <motion.h3
-                                className="text-xl font-bold text-white-800"
+                                className="text-lg md:text-xl font-bold text-white-800"
                                 initial={{
                                     opacity: 0,
                                 }}
@@ -83,12 +83,14 @@ const SkillsSection = () => {
                     ))}
                 </div>
                 <div>
-                    <h2 className="text-5xl font-bold mt-10">Languages</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold mt-10">
+                        Languages
+                    </h2>
                     <div className=" mt-8 space-y-4">
                         {languages.map((lng, index) => (
-                            <div className="w-64" key={index}>
+                            <div className="w-full md:w-64" key={index}>
                                 <motion.h3
-                                    className="text-xl font-bold text-white-800"
+                                    className="text-lg md:text-xl font-bold text-white-800"
                                     initial={{
                                         opacity: 0,
                                     }}

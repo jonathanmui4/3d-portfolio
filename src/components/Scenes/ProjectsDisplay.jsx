@@ -60,7 +60,7 @@ const Project = (props) => {
 
 export const currentProjectAtom = atom(Math.floor(projects.length / 2));
 
-export const ProjectsDisplay = () => {
+export const ProjectsDisplay = ({ isMobile, responsiveRatio }) => {
     const { viewport } = useThree();
     const [currentProject] = useAtom(currentProjectAtom);
     return (

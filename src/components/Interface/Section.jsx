@@ -1,12 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Section = ({ children, idName }) => {
+const Section = ({ children, idName, mobileTop }) => {
     return (
         <motion.section
             className={`
   h-screen w-screen p-8 max-w-screen-2xl mx-auto
-  flex flex-col items-start justify-center
+  flex flex-col items-start ${
+      mobileTop ? "justify-start md:justify-center" : "justify-center"
+  }
   `}
             initial={{
                 opacity: 0,

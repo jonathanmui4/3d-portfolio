@@ -4,8 +4,8 @@ import Section from "./Section";
 const ContactSection = () => {
     return (
         <Section idName={"Contact"}>
-            <h2 className="text-5xl font-bold">Contact me</h2>
-            <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
+            <h2 className="text-3xl md:text-5xl font-bold">Contact me</h2>
+            <div className="mt-8 p-8 rounded-md bg-white bg-opacity-70 w-96 max-w-full">
                 <form>
                     <label
                         htmlFor="name"
