@@ -2,7 +2,7 @@ import React from "react";
 import Section from "./Section";
 import { motion } from "framer-motion";
 
-const AboutSection = () => {
+const AboutSection = ({ setSection }) => {
     return (
         <Section idName={"About"}>
             <h1 className="text-6xl font-extrabold leading-snug">
@@ -41,6 +41,7 @@ const AboutSection = () => {
                     duration: 0.75,
                     delay: 0.6,
                 }}
+                onClick={() => setSection(3)}
             >
                 Contact me
             </motion.button>
