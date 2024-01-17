@@ -99,7 +99,7 @@ const RoomScene = ({ menuOpened, isMobile, responsiveRatio }) => {
                         scaleZ: avatarScaleRatio,
                     },
                     1: {
-                        x: 3,
+                        x: isMobile ? 0.3 : 3,
                         y: -viewport.height - 3,
                         z: 0,
                         rotateX: 0,
@@ -110,7 +110,7 @@ const RoomScene = ({ menuOpened, isMobile, responsiveRatio }) => {
                         scaleZ: 3,
                     },
                     2: {
-                        x: -5,
+                        x: isMobile ? -2.3 : -5,
                         y: -viewport.height * 2 - 1.5,
                         z: 5,
                         rotateX: 0,

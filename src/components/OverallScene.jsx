@@ -16,7 +16,12 @@ const OverallScene = ({ menuOpened, section }) => {
                 isMobile={isMobile}
                 responsiveRatio={responsiveRatio}
             />
-            <HologramScene section={section} menuOpened={menuOpened} />
+            <HologramScene
+                section={section}
+                menuOpened={menuOpened}
+                isMobile={isMobile}
+                responsiveRatio={responsiveRatio}
+            />
             <ProjectsDisplay
                 isMobile={isMobile}
                 responsiveRatio={responsiveRatio}

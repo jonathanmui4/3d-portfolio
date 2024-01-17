@@ -9,14 +9,19 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { Avatar } from "./Avatar";
 import { motion } from "framer-motion-3d";
 
-const HologramScene = ({ section, menuOpened }) => {
+const HologramScene = ({ section, menuOpened, isMobile, responsiveRatio }) => {
     const { viewport } = useThree();
     return (
         <motion.group
-            position={[0, -1.5, -10]}
+            position={[0, isMobile ? -viewport.height : -1.5, -10]}
             animate={{
                 z: section === 1 ? 0 : -10,
-                y: section === 1 ? -viewport.height : -1.5,
+                y:
+                    section === 1
+                        ? -viewport.height
+                        : isMobile
+                        ? -viewport.height
+                        : -1.5,
             }}
         >
             <directionalLight position={[-5, 3, 5]} intensity={0.4} />
