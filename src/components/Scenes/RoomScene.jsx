@@ -10,7 +10,7 @@ import { Avatar } from "./Avatar";
 import { Room } from "./Room";
 import { generalTransition } from "../../utils/motion";
 
-const RoomScene = ({ menuOpened, isMobile, responsiveRatio }) => {
+const RoomScene = ({ menuOpened, section, isMobile, responsiveRatio }) => {
     // const { animation } = useControls({
     //     animation: {
     //         value: "Typing",
@@ -19,8 +19,8 @@ const RoomScene = ({ menuOpened, isMobile, responsiveRatio }) => {
     // });
 
     const { viewport } = useThree();
-    const [section, setSection] = useState(0);
-    const data = useScroll();
+    // const [section, setSection] = useState(0);
+    // const data = useScroll();
     const characterContainerRoomRef = useRef();
 
     const roomScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
@@ -56,21 +56,6 @@ const RoomScene = ({ menuOpened, isMobile, responsiveRatio }) => {
     const characterGroup = useRef();
 
     useFrame((state) => {
-        let curSection = Math.floor(data.scroll.current * data.pages);
-
-        if (curSection > 3) {
-            curSection = 3;
-        }
-
-        if (curSection !== section) {
-            setSection(curSection);
-            // if (curSection === 0) {
-            //     setCharacterAnimation("Typing");
-            // } else {
-            //     setCharacterAnimation("Standing");
-            // }
-        }
-
         state.camera.position.x = cameraPositionX.get();
         state.camera.lookAt(cameraLookAtX.get(), 0, 0);
 
