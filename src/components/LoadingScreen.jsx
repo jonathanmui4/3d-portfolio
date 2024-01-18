@@ -27,9 +27,9 @@ const LoadingScreen = ({ started, setStarted }) => {
                         width: `${progress}%`,
                     }}
                 >
-                    Jonathan Mui
+                    Loading...
                 </div>
-                <div className="opacity-40">Jonathan Mui</div>
+                <div className="opacity-40">Loading...</div>
             </div>
         </div>
     );
