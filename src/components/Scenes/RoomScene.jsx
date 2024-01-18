@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import { Environment, useScroll } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import { animate, useMotionValue } from "framer-motion";

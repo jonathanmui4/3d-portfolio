@@ -249,19 +249,31 @@ const skills = [
         level: 80,
     },
     {
-        title: "React / React Native",
+        title: "React/Next.js",
         level: 90,
     },
     {
-        title: "Nodejs",
-        level: 90,
+        title: "AWS Cloud Services",
+        level: 75,
     },
     {
-        title: "Typescript",
+        title: "Typescript/Javascript",
+        level: 75,
+    },
+    {
+        title: "C/C++",
         level: 60,
     },
     {
-        title: "3D Modeling",
+        title: "Python",
+        level: 70,
+    },
+    {
+        title: "Unity/C#",
+        level: 60,
+    },
+    {
+        title: "PyTorch",
         level: 40,
     },
 ];
@@ -278,36 +290,46 @@ const languages = [
 
 const projects = [
     {
-        title: "Wawatmos",
-        url: "https://r3f-wawatmos-final.vercel.app/",
+        title: "Smart Lamp",
+        url: "https://github.com/jonathanmui4/CS3237-SmartLamp",
         image: "projects/Smartlamp.png",
         description:
-            "Recreating the Atmos Awwwards website with React Three Fiber",
+            "Green Smart Lamp that adjusts lighting based on the activity of the user. The lamp also acts as a study companion and ensures the user has good posture.",
     },
     {
-        title: "Portfolio Baking",
-        url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
-        image: "projects/Smartlamp.png",
+        title: "Laser Tag++",
+        url: "https://www.youtube.com/watch?v=k6_DjZC0K4A",
+        image: "projects/Capstone.png",
         description:
-            "Learn how to bake a 3D model with Blender and use it in r3f",
+            "Augmented Reality Laser Tag Game. Players can play against each other with a gun, vest and glove that detects hand actions",
     },
     {
-        title: "3D Avatar",
-        url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
-        image: "projects/Smartlamp.png",
-        description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+        title: "King's Gambit",
+        url: "https://www.youtube.com/watch?v=172zasHyvFQ",
+        image: "projects/KingsGambit.png",
+        description:
+            "3D Chess game developed with Unreal Engine 4, teaching users basic opening moves of chess",
     },
     {
-        title: "Kanagame",
-        url: "https://www.youtube.com/watch?v=zwNF1-lsia8",
-        image: "projects/Smartlamp.png",
-        description: "Use React Three Fiber to create a 3D game",
+        title: "BeeX Website",
+        url: "https://beex.sg/",
+        image: "projects/Beex.png",
+        description:
+            "Redesigned mobile-friendly BeeX company website with SEO optimisation and Hubspot integration. Developed with Next.js and deployed on AWS Lightsail.",
     },
     {
-        title: "Loader",
-        url: "https://www.youtube.com/watch?v=L12wIvuZTOY",
-        image: "projects/Smartlamp.png",
-        description: "Create a loading screen for your r3f projects",
+        title: "RTOS Robot",
+        url: "https://www.youtube.com/watch?v=ILJXfrgiFCE",
+        image: "projects/RTOS.jpeg",
+        description:
+            "Remote Control Robot with RTOS and remote control and self-driving capabilities.",
+    },
+    {
+        title: "Alex",
+        url: "https://www.youtube.com/watch?v=oSzb3-V5BTA",
+        image: "projects/Alex.jpeg",
+        description:
+            "Search & Rescue Robot equipped with a LiDAR. It is remotely operated and can perform mapping operations ",
     },
 ];
 

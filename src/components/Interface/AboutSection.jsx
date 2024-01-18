@@ -25,7 +25,7 @@ const AboutSection = ({ setSection }) => {
                     delay: 0.5,
                 }}
             >
-                I'm a software engineer based in the Bay Area.
+                Computer Engineer passionate about AR/VR & IoT
             </motion.p>
             <motion.button
                 className=" mt-4 md:mt-8 bg-indigo-600 text-white px-4 py-2 rounded-md"
