@@ -4,13 +4,19 @@ import { motion } from "framer-motion-3d";
 import { Image, Text } from "@react-three/drei";
 import { atom, useAtom } from "jotai";
 import { projects } from "../../content";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 const Project = (props) => {
     const { project, highlighted } = props;
 
     const background = useRef();
     const bgOpacity = useMotionValue(0.4);
+
+    const [hovered, setHovered] = useState(false);
+
+    useEffect(() => {
+        document.body.style.cursor = hovered ? "pointer" : "auto";
+    }, [hovered]);
 
     useEffect(() => {
         animate(bgOpacity, highlighted ? 0.7 : 0.4);
@@ -25,6 +31,8 @@ const Project = (props) => {
             <mesh
                 position-z={-0.01}
                 onClick={() => window.open(project.url, "_blank")}
+                onPointerOver={() => setHovered(true)}
+                onPointerOut={() => setHovered(false)}
                 ref={background}
             >
                 <planeGeometry args={[2.2, 2]} />
