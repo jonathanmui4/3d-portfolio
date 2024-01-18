@@ -6,6 +6,7 @@ This portfolio site was inspired by [WAWA Sensei's youtube tutorial](https://www
 
 -   Room -> Crafted with Blender
 -   Hologram Pedestal -> Crafted with Blender
--   (Keyboard)[https://sketchfab.com/3d-models/mechanical-keyboard-vortex-race-3-62f54871c097450d950e5fc614699558]
--   (Chair) [https://sketchfab.com/3d-models/office-chair-95160ce5a52f4e379f66527d2735d96c]
--   (Avatar) [https://readyplayer.me/]
+-   [Keyboard](https://sketchfab.com/3d-models/mechanical-keyboard-vortex-race-3-62f54871c097450d950e5fc614699558)
+-   [Chair](https://sketchfab.com/3d-models/office-chair-95160ce5a52f4e379f66527d2735d96c)
+-   [Avatar](https://readyplayer.me/), [Animations](https://www.mixamo.com/#/)
+  
