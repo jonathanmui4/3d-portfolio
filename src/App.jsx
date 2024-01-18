@@ -9,9 +9,11 @@ import ScrollManager from "./components/ScrollManager";
 import { MotionConfig } from "framer-motion";
 import { generalTransition } from "./utils/motion";
 import OverallScene from "./components/OverallScene";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
     const [section, setSection] = useState(0);
+    const [started, setStarted] = useState(false);
     const [menuOpened, setMenuOpened] = useState(false);
 
     useEffect(() => {
@@ -20,6 +22,7 @@ function App() {
 
     return (
         <BrowserRouter>
+            <LoadingScreen started={started} setStarted={setStarted} />
             <div className="absolute top-0 left-0 z-0 w-full h-screen bg-primary">
                 <MotionConfig
                     transition={{
