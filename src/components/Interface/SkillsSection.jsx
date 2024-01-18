@@ -1,39 +1,7 @@
 import React from "react";
 import Section from "./Section";
+import { skills, languages } from "../../content";
 import { motion } from "framer-motion";
-
-const skills = [
-    {
-        title: "Threejs / React Three Fiber",
-        level: 80,
-    },
-    {
-        title: "React / React Native",
-        level: 90,
-    },
-    {
-        title: "Nodejs",
-        level: 90,
-    },
-    {
-        title: "Typescript",
-        level: 60,
-    },
-    {
-        title: "3D Modeling",
-        level: 40,
-    },
-];
-const languages = [
-    {
-        title: "English",
-        level: 100,
-    },
-    {
-        title: "Mandarin",
-        level: 80,
-    },
-];
 
 const SkillsSection = () => {
     return (
@@ -82,7 +50,7 @@ const SkillsSection = () => {
                         </div>
                     ))}
                 </div>
-                <div>
+                {/* <div>
                     <h2 className="text-3xl md:text-5xl font-bold mt-10">
                         Languages
                     </h2>
@@ -128,7 +96,7 @@ const SkillsSection = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
             </motion.div>
         </Section>
     );

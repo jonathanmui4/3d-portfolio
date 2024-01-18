@@ -243,6 +243,39 @@ const testimonials = [
 //     },
 // ];
 
+const skills = [
+    {
+        title: "Threejs / React Three Fiber",
+        level: 80,
+    },
+    {
+        title: "React / React Native",
+        level: 90,
+    },
+    {
+        title: "Nodejs",
+        level: 90,
+    },
+    {
+        title: "Typescript",
+        level: 60,
+    },
+    {
+        title: "3D Modeling",
+        level: 40,
+    },
+];
+const languages = [
+    {
+        title: "English",
+        level: 100,
+    },
+    {
+        title: "Mandarin",
+        level: 80,
+    },
+];
+
 const projects = [
     {
         title: "Wawatmos",
@@ -278,4 +311,4 @@ const projects = [
     },
 ];
 
-export { experiences, testimonials, projects };
+export { experiences, testimonials, projects, skills, languages };
