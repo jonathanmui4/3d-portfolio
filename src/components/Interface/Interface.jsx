@@ -6,11 +6,11 @@ import ContactSection from "./ContactSection";
 import ProjectsSection from "./ProjectsSection";
 import ExperienceSection from "./ExperienceSection";
 
-const Interface = ({ setSection }) => {
+const Interface = ({ setSection, menuOpened }) => {
     return (
         <>
             <div className="flex flex-col items-center w-screen">
-                <AboutSection setSection={setSection} />
+                <AboutSection setSection={setSection} menuOpened={menuOpened} />
                 <SkillsSection />
                 {/* <ExperienceSection /> */}
                 {/* <Section idName={"Projects"}>

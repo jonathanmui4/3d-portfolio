@@ -50,7 +50,10 @@ function App() {
                                 />
                             </Scroll>
                             <Scroll html>
-                                <Interface setSection={setSection} />
+                                <Interface
+                                    setSection={setSection}
+                                    menuOpened={menuOpened}
+                                />
                             </Scroll>
                         </ScrollControls>
                     </Canvas>
