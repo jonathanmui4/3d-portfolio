@@ -84,7 +84,7 @@ const RoomScene = ({ menuOpened, section, isMobile, responsiveRatio }) => {
                     },
                     1: {
                         x: isMobile ? 0.3 : 3,
-                        y: -viewport.height - 3,
+                        y: -viewport.height - 2,
                         z: 0,
                         rotateX: 0,
                         rotateY: 0,
