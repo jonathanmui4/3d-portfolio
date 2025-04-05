@@ -290,6 +290,13 @@ const languages = [
 
 const projects = [
     {
+        title: "Interview Gym",
+        url: "https://github.com/jonathanmui4/InterviewGym",
+        image: "projects/InterviewGym.png",
+        description:
+            "AI-powered platform that helps users prepare for technical interviews by providing personalized feedback and performance analysis.",
+    },
+    {
         title: "Smart Lamp",
         url: "https://github.com/jonathanmui4/CS3237-SmartLamp",
         image: "projects/Smartlamp.png",
